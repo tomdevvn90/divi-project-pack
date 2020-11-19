@@ -25,6 +25,13 @@ You should have received a copy of the GNU General Public License
 along with Divi Project Pack. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
+{
+	/**
+	 * Define
+	 */
+	define( 'DPP_VER', '1.0.0' );
+	define( 'DPP_URI', plugin_dir_url( __FILE__ ) );
+}
 
 if ( ! function_exists( 'dipp_initialize_extension' ) ):
 /**

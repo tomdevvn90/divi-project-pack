@@ -38,8 +38,14 @@ class DIPP_DiviProjectPack extends DiviExtension {
 	public function __construct( $name = 'divi-project-pack', $args = array() ) {
 		$this->plugin_dir     = plugin_dir_path( __FILE__ );
 		$this->plugin_dir_url = plugin_dir_url( $this->plugin_dir );
+		
+		$this->static();
 
 		parent::__construct( $name, $args );
+	}
+
+	public function static() {
+		wp_enqueue_style( 'dpp-style', DPP_URI . '/styles/css/dpp.css', false, DPP_VER );
 	}
 }
 
