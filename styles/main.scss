@@ -12,6 +12,10 @@
     font-size: 35px;
     position: relative;
 
+    @media(max-width: 560px) {
+      font-size: 1.5em;
+    }
+
     &:after {
       content: "";
       position: absolute;
@@ -33,6 +37,10 @@
       flex-wrap: wrap;
       margin: 0 -15px;
       align-items: center;
+
+      @media(max-width: 925px) {
+        margin-top: 30px;
+      }
 
       .course-item {
         width: 30%;
@@ -67,11 +75,23 @@
               font-size: 16px;
               font-weight: bold;
               line-height: normal;
+
+              a {
+                color: #0D1E2B;
+              }
             }
 
             p {
               font-size: 13px;
               line-height: normal;
+
+              @media(max-width: 1024px) {
+                display: none;
+              }
+
+              @media(max-width: 625px) {
+                display: block;
+              }
             }
           }
         }
@@ -79,6 +99,191 @@
         &:nth-child(3),
         &:nth-child(4) {
           width: 40%;
+        }
+
+        @media(max-width: 925px) {
+          width: 50% !important;
+        }
+
+        @media(max-width: 625px) {
+          width: 100% !important;
+        }
+      }
+    }
+
+    &.temp__featured_post_first {
+      margin: 0 -15px;
+
+      &:after {
+        content: '';
+        clear: both;
+        display: block;
+      }
+
+      .course-item {
+        float: left;
+        width: calc(100% / 4);
+        padding: 0 15px;
+        margin-bottom: 30px;
+
+        &:nth-child(5) {
+          
+          &:after {
+            content: '';
+            clear: both;
+            display: block;
+          }
+        }
+
+        .post-inner {
+
+          .post-thumb {
+
+            a {
+              display: block;
+              line-height: 0;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+
+          .post-entry {
+            padding: 10px;
+            background: white;
+            min-height: 128px;
+
+            .post-title {
+              font-size: 16px;
+              font-weight: bold;
+              line-height: normal;
+
+              a {
+                color: #0D1E2B;
+
+                line-clamp: 2;
+                -webkit-line-clamp: 2;
+                box-orient: vertical;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+
+            p {
+              font-size: 13px;
+              line-height: normal;
+
+              display: -webkit-box;
+              line-clamp: 3;
+              -webkit-line-clamp: 3;
+              box-orient: vertical;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+
+        &:nth-child(1) {
+          width: 50%;
+          margin-top: 5%;
+
+          .post-thumb {
+            position: relative;
+
+            &:before {
+              content: '';
+              position: absolute;
+              width: 80%;
+              height: 95%;
+              border: solid 1px white;
+              top: -10px;
+              right: -10px;
+              z-index: -1;
+            }
+          }
+
+          .post-entry {
+            width: 80%;
+            margin-left: -15px;
+            padding: 15px;
+            box-shadow: 0px -40px white;
+            
+            .post-title {
+              text-transform: uppercase;
+              font-size: 15px;
+              letter-spacing: 1px;
+            }
+          }
+        }
+
+        @media(max-width: 1024px) {
+          width: 50% !important;
+
+          &:nth-child(1) {
+            width: 100% !important;
+
+            .post-entry {
+              width: 100%;
+              margin-left: 0;
+            }
+          }
+        }
+
+        @media(max-width: 600px) {
+          width: 100% !important;
+
+          .post-entry {
+            width: 100%;
+            margin-left: 0;
+            min-height: auto !important;
+          }
+        }
+      }
+    }
+
+    &.temp__base_grid {
+      margin: 0 -15px;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .course-item  {
+        width: calc(100% / 4);
+        padding: 0 15px;
+        margin-bottom: 40px;
+
+        @media(max-width: 768px) {
+          width: calc(100% / 3);
+        }
+
+        @media(max-width: 560px) {
+          width: calc(100% / 2);
+        }
+
+        @media(max-width: 375px) {
+          width: calc(100% / 1);
+        }
+
+        .post-entry {
+          margin-top: 10px; 
+
+          .post-title {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: normal;
+
+            a {
+              color: #0D1E2B;
+            }
+          }
+
+          p {
+            font-size: 13px;
+            line-height: normal;
+          }
         }
       }
     }

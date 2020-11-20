@@ -30,6 +30,13 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 				'description' => esc_html__( 'Enter heading text', 'dipp-divi-project-pack' ),
 				'toggle_slug' => 'main_content',
 			),
+			'heading_text_color' => array(
+				'label' => esc_html__( 'Heading Color', 'dipp-divi-project-pack' ),
+				'type' => 'color-alpha',
+				'custom_color' => true,
+				'toggle_slug' => 'main_content',
+				'default' => '#222222'
+			),
 			'course_taxonomy' => [
 				'label' => esc_html__( 'Choose Course Category', 'dipp-divi-project-pack' ),
 				'type' => 'categories',
@@ -54,12 +61,16 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 				],
 				'default' => 'symmetrical',
 				'toggle_slug' => 'main_content',
+				'computed_affects'  => [
+					'__posts',
+				]
 			],
 			'__posts' => [
 				'type' => 'computed',
 				'computed_callback' => [ 'DIPP_SenseiLMS_Courses', 'get_course_posts' ],
 				'computed_depends_on' => [
-					'course_taxonomy'
+					'course_taxonomy',
+					'template'
 				]
 			],
 		);
@@ -69,10 +80,17 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 		$params = wp_parse_args( $params, [
 			'posts_per_page' => 6,
 			'course_taxonomy' => '',
+			'template' => 'symmetrical',
 		] );
 
+		$post_num = [
+			'symmetrical' => 6,
+			'featured_post_first' => 9,
+			'base_grid'=> 8,
+		];
+
 		$args = [
-			'posts_per_page' => $params[ 'posts_per_page' ],
+			'posts_per_page' => $post_num[ $params['template'] ],
 			'paged' => 1,
 			'post_type' => 'course',
 		];
@@ -135,13 +153,16 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 
 	public function render( $attrs, $content = null, $render_slug ) {
 
-		$posts = self::get_course_posts();
+		$posts = self::get_course_posts( [
+			'template' => $this->props['template'],
+		] );
 		$content = self::build_template( $posts, $this->props['template'] );
 
 		return sprintf( 
-			'<div class="pp-module-lms-course"><h2 class="heading-text">%1$s</h2> %2$s</div>', 
+			'<div class="pp-module-lms-course"><h2 class="heading-text" style="color: %3$s;">%1$s</h2> %2$s</div>', 
 			$this->props['heading'],
 			$content,
+			$this->props['heading_text_color'],
 			$this->props['course_taxonomy'] );
 	}
 }

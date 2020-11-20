@@ -40,11 +40,10 @@ class SenseiLMSCourses extends Component {
 
   render() {
     const posts = this.props.__posts
-    console.log( this.props )
     
     return (
       <div className="pp-module-lms-course">
-        <h2 className="heading-text">{ this.props.heading }</h2>
+        <h2 className="heading-text" style={ { color: this.props.heading_text_color } }>{ this.props.heading }</h2>
         <div className={ [ 'pp-lms-course-list', `temp__${ this.props.template }` ].join( ' ' ) }>
           <CourseLoop data={ posts } />
         </div>
