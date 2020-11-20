@@ -15,8 +15,8 @@ const CourseLoop = function( props ) {
             <div className="course-item" key={ p.ID }>
               <div className="post-inner">
                 <div className="post-thumb">
-                  <a href={ p.post_url }>
-                    <img src={ p.thumb_url } alt={ p.post_title } />
+                  <a href={ p.post_url } className="thumb-background" style={ {background: `url(${ p.thumb_url }) no-repeat center center / cover, #222`} }>
+                    {/* <img src={ p.thumb_url } alt={ p.post_title } /> */}
                   </a>
                 </div>
                 <div className="post-entry">

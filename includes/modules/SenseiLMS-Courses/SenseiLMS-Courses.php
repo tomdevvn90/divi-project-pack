@@ -111,6 +111,7 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 			$url = get_the_post_thumbnail_url( $p->ID, 'large' );
 			$p->thumb_url = $url ? $url : 'https://via.placeholder.com/800x600';
 			$p->post_url = get_the_permalink( $p->ID );
+			$p->post_excerpt = wp_trim_words( $p->post_excerpt, 16, '...' );
 			return $p;
 		}, $_posts ) : [];
 	}
@@ -133,8 +134,8 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 			<div class="course-item <?= DIPP_SenseiLMS_Courses::post_special_class( $index + 1, $template ) ?>">
 				<div class="post-inner">
 					<div class="post-thumb">
-						<a href="<?= $p->post_url ?>">
-							<img src="<?= $p->thumb_url ?>" alt="<?= $p->post_title ?>">
+						<a href="<?= $p->post_url ?>" class="thumb-background" style="background: url(<?= $p->thumb_url ?>) no-repeat center center / cover, #222;">
+							<!-- <img src="<?= $p->thumb_url ?>" alt="<?= $p->post_title ?>"> -->
 						</a>
 					</div>
 					<div class="post-entry">
