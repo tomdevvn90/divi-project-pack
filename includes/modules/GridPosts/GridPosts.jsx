@@ -45,7 +45,7 @@ class DPP_GridPosts extends Component {
     return (
       <div className="pp-module-grid-posts">
         <h2 className={ [ 'heading-text', `__heading-${ template }` ].join( ' ' ) } style={ { color: this.props.heading_text_color } }>{ this.props.heading }</h2>
-        <div className={ [ 'pp-lms-course-list', `temp__${ template }` ].join( ' ' ) }>
+        <div className={ [ 'pp-posts-grid', `temp__${ template }` ].join( ' ' ) }>
           <PostLoop data={ posts } />
         </div>
       </div>
