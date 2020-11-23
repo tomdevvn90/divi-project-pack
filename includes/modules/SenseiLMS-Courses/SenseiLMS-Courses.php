@@ -93,6 +93,7 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 			'posts_per_page' => $post_num[ $params['template'] ],
 			'paged' => 1,
 			'post_type' => 'course',
+			'post_status' => 'publish',
 		];
 
 		if( ! empty( $params[ 'course_taxonomy' ] ) ) {
