@@ -25,6 +25,14 @@
       background: #dbdbdb;
       width: 60%;
     }
+
+    &.__heading-base_grid {
+      width: 80%;
+
+      &:after {
+        max-width: 260px;
+      }
+    }
   }
 }
 
