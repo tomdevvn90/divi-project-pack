@@ -41,7 +41,7 @@ class DPP_GridPosts extends Component {
   render() {
     const posts = this.props.__posts
     const template = 'default'
-    console.log( this.props )
+    
     return (
       <div className="pp-module-grid-posts">
         <h2 className={ [ 'heading-text', `__heading-${ template }` ].join( ' ' ) } style={ { color: this.props.heading_text_color } }>{ this.props.heading }</h2>

@@ -30,12 +30,26 @@ class DIPP_GridPosts extends ET_Builder_Module {
 				'custom_color' => true,
 				'toggle_slug' => 'main_content',
 				'default' => '#222222'
-			),
+      ),
+      'category' => [
+				'label' => esc_html__( 'Choose Category', 'dipp-divi-project-pack' ),
+				'type' => 'categories',
+        'option_category' => 'basic_option',
+        'post_type' => 'post',
+        'taxonomy_name' => 'category',
+				'renderer_options' => array(
+          'use_terms' => false,
+        ),
+				'toggle_slug' => 'main_content',
+				'computed_affects'  => [
+					'__posts',
+				]
+			],
       '__posts' => [
         'type' => 'computed',
         'computed_callback' => [ 'DIPP_GridPosts', 'get_posts' ],
         'computed_depends_on' => [
-          'heading'
+          'category'
         ]
       ],
     ];
@@ -44,7 +58,7 @@ class DIPP_GridPosts extends ET_Builder_Module {
   static function get_posts( $params = [] ) {
     $params = wp_parse_args( $params, [
       'posts_per_page' => 8,
-      // 'course_taxonomy' => '',
+      'category' => '',
       // 'template' => 'symmetrical',
     ] );
 
@@ -54,6 +68,17 @@ class DIPP_GridPosts extends ET_Builder_Module {
       'post_type' => 'post',
       'post_status' => 'publish',
     ];
+
+    if( ! empty( $params[ 'category' ] ) ) {
+      $args[ 'category__in' ] = explode( ',', $params[ 'category' ] );
+			// $args[ 'tax_query' ] = [
+			// 	[ 
+			// 		'taxonomy' => 'course-category',
+			// 		'field'    => 'term_id',
+			// 		'terms'    => explode( ',', $params[ 'category' ] ),
+			// 	]
+			// ];
+		}
 
     $_posts = get_posts( $args );
 
@@ -104,7 +129,9 @@ class DIPP_GridPosts extends ET_Builder_Module {
 
   public function render( $attrs, $content = null, $render_slug ) {
 
-    $posts = self::get_posts();
+    $posts = self::get_posts( [
+      'category' => $this->props['category'],
+    ] );
     $content = self::build_template( $posts );
     $template = 'default';
 
