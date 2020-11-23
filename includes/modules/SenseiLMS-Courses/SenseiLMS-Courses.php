@@ -160,11 +160,12 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 		$content = self::build_template( $posts, $this->props['template'] );
 
 		return sprintf( 
-			'<div class="pp-module-lms-course"><h2 class="heading-text" style="color: %3$s;">%1$s</h2> %2$s</div>', 
+			'<div class="pp-module-lms-course"><h2 class="heading-text __heading-%5$s" style="color: %3$s;">%1$s</h2> %2$s</div>', 
 			$this->props['heading'],
 			$content,
 			$this->props['heading_text_color'],
-			$this->props['course_taxonomy'] );
+			$this->props['course_taxonomy'],
+			$this->props['template'] );
 	}
 }
 

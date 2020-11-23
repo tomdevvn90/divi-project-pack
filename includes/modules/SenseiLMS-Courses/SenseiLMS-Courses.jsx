@@ -43,7 +43,7 @@ class SenseiLMSCourses extends Component {
     
     return (
       <div className="pp-module-lms-course">
-        <h2 className="heading-text" style={ { color: this.props.heading_text_color } }>{ this.props.heading }</h2>
+        <h2 className={ [ 'heading-text', `__heading-${ this.props.template }` ].join( ' ' ) } style={ { color: this.props.heading_text_color } }>{ this.props.heading }</h2>
         <div className={ [ 'pp-lms-course-list', `temp__${ this.props.template }` ].join( ' ' ) }>
           <CourseLoop data={ posts } />
         </div>
