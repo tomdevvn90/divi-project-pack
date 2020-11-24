@@ -36,6 +36,16 @@
   }
 }
 
+@-webkit-keyframes fadeinout {
+  30%,50% { opacity: 0; }
+  60%,80% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  30%,50% { opacity: 0; }
+  60%,80% { opacity: 1; }
+}
+
 .pp-module-lms-course {
 
   .pp-lms-course-list {
@@ -78,6 +88,21 @@
             .thumb-background {
               padding-bottom: 80%;
             }
+
+            &.__has-thumb2 {
+
+              .__thumb-2 {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+
+                -webkit-animation: fadeinout 15s linear forwards infinite;
+                animation: fadeinout 15s linear forwards infinite;
+              }
+            }
           }
 
           .post-entry {
@@ -117,6 +142,10 @@
         &:nth-child(3),
         &:nth-child(4) {
           width: 40%;
+
+          .post-entry {
+            background: white;
+          }
 
           @media only screen and (min-width: 925px) {
             .post-entry {

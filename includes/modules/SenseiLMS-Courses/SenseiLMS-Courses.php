@@ -110,7 +110,14 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 
 		return count( $_posts ) ? array_map( function( $p ) {
 			$url = get_the_post_thumbnail_url( $p->ID, 'large' );
+			$postImage2 = '';
+
+			if( function_exists( 'get_field' ) ) {
+				$postUrl2 = get_field( 'featured_image_2', $p->ID );
+			}
+
 			$p->thumb_url = $url ? $url : 'https://via.placeholder.com/800x600';
+			$p->thumb_url2 = $postUrl2;
 			$p->post_url = get_the_permalink( $p->ID );
 			$p->post_excerpt = wp_trim_words( $p->post_excerpt, 16, '...' );
 			return $p;
@@ -131,13 +138,20 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 		ob_start();
 		?>
 		<div class="pp-lms-course-list temp__<?= $template ?>">
-			<? foreach( $posts as $index => $p ) : ?>
+			<? 
+			foreach( $posts as $index => $p ) : 
+				$postHasThumb2Class = '';
+				$postThumb2Html = '';
+				if( $template == 'symmetrical' && in_array( $index, [ 2,3 ] ) ) {
+					$postHasThumb2Class = $p->thumb_url2 ? '__has-thumb2' : '';
+					$postThumb2Html = $p->thumb_url2 ? '<a href=". $p->post_url ." class="thumb-background __thumb-2" style="background: url('. $p->thumb_url2 .') no-repeat center center / cover, #222;" ></a>' : '';
+				}
+			?>
 			<div class="course-item <?= DIPP_SenseiLMS_Courses::post_special_class( $index + 1, $template ) ?>">
 				<div class="post-inner">
-					<div class="post-thumb">
-						<a href="<?= $p->post_url ?>" class="thumb-background" style="background: url(<?= $p->thumb_url ?>) no-repeat center center / cover, #222;">
-							<!-- <img src="<?= $p->thumb_url ?>" alt="<?= $p->post_title ?>"> -->
-						</a>
+					<div class="post-thumb <?= $postHasThumb2Class ?>">
+						<a href="<?= $p->post_url ?>" class="thumb-background" style="background: url(<?= $p->thumb_url ?>) no-repeat center center / cover, #222;"></a>
+						<?= $postThumb2Html ?>
 					</div>
 					<div class="post-entry">
 						<h4 class="post-title">
