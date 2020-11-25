@@ -171,6 +171,7 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 
 		$posts = self::get_course_posts( [
 			'template' => $this->props['template'],
+			'course_taxonomy' => $this->props[ 'course_taxonomy' ],
 		] );
 		$content = self::build_template( $posts, $this->props['template'] );
 
