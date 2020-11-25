@@ -119,7 +119,7 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 			$p->thumb_url = $url ? $url : 'https://via.placeholder.com/800x600';
 			$p->thumb_url2 = $postUrl2;
 			$p->post_url = get_the_permalink( $p->ID );
-			$p->post_excerpt = wp_trim_words( $p->post_excerpt, 16, '...' );
+			$p->post_excerpt = wp_trim_words( $p->post_excerpt, 21, '...' );
 			return $p;
 		}, $_posts ) : [];
 	}
