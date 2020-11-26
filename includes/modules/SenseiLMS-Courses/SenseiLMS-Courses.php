@@ -22,6 +22,20 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 
 	public function get_fields() {
 		return array(
+			'posttype' => [
+				'label' => esc_html__( 'Choose Post Type', 'dipp-divi-project-pack' ),
+				'type' => 'select',
+				'option_category' => 'basic_option',
+				'options' => [
+					'course' => esc_html__( 'Course', 'dipp-divi-project-pack' ),
+					'post'  => esc_html__( 'Blog Post', 'dipp-divi-project-pack' ),
+				],
+				'default' => 'course',
+				'toggle_slug' => 'main_content',
+				'computed_affects'  => [
+					'__posts',
+				]
+			],
 			'heading' => array(
 				'label' => esc_html__( 'Heading Text', 'dipp-divi-project-pack' ),
 				'type' => 'text',
@@ -48,6 +62,26 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 				'toggle_slug' => 'main_content',
 				'computed_affects'  => [
 					'__posts',
+				],
+				'show_if' => [
+					'posttype' => [ 'course' ]
+				]
+			],
+			'post_category' => [
+				'label' => esc_html__( 'Choose Category', 'dipp-divi-project-pack' ),
+				'type' => 'categories',
+        'option_category' => 'basic_option',
+        'post_type' => 'post',
+        'taxonomy_name' => 'category',
+				'renderer_options' => array(
+          'use_terms' => false,
+        ),
+				'toggle_slug' => 'main_content',
+				'computed_affects'  => [
+					'__posts',
+				],
+				'show_if' => [
+					'posttype' => [ 'post' ]
 				]
 			],
 			'template' => [
@@ -69,7 +103,9 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 				'type' => 'computed',
 				'computed_callback' => [ 'DIPP_SenseiLMS_Courses', 'get_course_posts' ],
 				'computed_depends_on' => [
+					'posttype',
 					'course_taxonomy',
+					'post_category',
 					'template'
 				]
 			],
@@ -78,8 +114,10 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 
 	static function get_course_posts( $params = [] ) {
 		$params = wp_parse_args( $params, [
+			'posttype' => 'course',
 			'posts_per_page' => 6,
 			'course_taxonomy' => '',
+			'post_category' => '',
 			'template' => 'symmetrical',
 		] );
 
@@ -92,11 +130,11 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 		$args = [
 			'posts_per_page' => $post_num[ $params['template'] ],
 			'paged' => 1,
-			'post_type' => 'course',
+			'post_type' => $params[ 'posttype' ],
 			'post_status' => 'publish',
 		];
 
-		if( ! empty( $params[ 'course_taxonomy' ] ) ) {
+		if( $params[ 'posttype' ] === 'course' && ! empty( $params[ 'course_taxonomy' ] ) ) {
 			$args[ 'tax_query' ] = [
 				[ 
 					'taxonomy' => 'course-category',
@@ -104,6 +142,10 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 					'terms'    => explode( ',', $params[ 'course_taxonomy' ] ),
 				]
 			];
+		}
+
+		if( $params[ 'posttype' ] === 'post' && ! empty( $params[ 'post_category' ] ) ) {
+			$args[ 'category__in' ] = explode( ',', $params[ 'post_category' ] );
 		}
 
 		$_posts = get_posts( $args );
@@ -170,8 +212,10 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 	public function render( $attrs, $content = null, $render_slug ) {
 
 		$posts = self::get_course_posts( [
+			'posttype' => $this->props['posttype'],
 			'template' => $this->props['template'],
 			'course_taxonomy' => $this->props[ 'course_taxonomy' ],
+			'post_category' => $this->props[ 'post_category' ],
 		] );
 		$content = self::build_template( $posts, $this->props['template'] );
 
