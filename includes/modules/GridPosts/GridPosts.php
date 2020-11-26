@@ -71,13 +71,6 @@ class DIPP_GridPosts extends ET_Builder_Module {
 
     if( ! empty( $params[ 'category' ] ) ) {
       $args[ 'category__in' ] = explode( ',', $params[ 'category' ] );
-			// $args[ 'tax_query' ] = [
-			// 	[ 
-			// 		'taxonomy' => 'course-category',
-			// 		'field'    => 'term_id',
-			// 		'terms'    => explode( ',', $params[ 'category' ] ),
-			// 	]
-			// ];
 		}
 
     $_posts = get_posts( $args );
