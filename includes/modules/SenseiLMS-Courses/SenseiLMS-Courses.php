@@ -186,7 +186,7 @@ class DIPP_SenseiLMS_Courses extends ET_Builder_Module {
 				$postThumb2Html = '';
 				if( $template == 'symmetrical' && in_array( $index, [ 2,3 ] ) ) {
 					$postHasThumb2Class = $p->thumb_url2 ? '__has-thumb2' : '';
-					$postThumb2Html = $p->thumb_url2 ? '<a href=". $p->post_url ." class="thumb-background __thumb-2" style="background: url('. $p->thumb_url2 .') no-repeat center center / cover, #222;" ></a>' : '';
+					$postThumb2Html = $p->thumb_url2 ? '<a href="'. $p->post_url .'" class="thumb-background __thumb-2" style="background: url('. $p->thumb_url2 .') no-repeat center center / cover, #222;" ></a>' : '';
 				}
 			?>
 			<div class="course-item <?= DIPP_SenseiLMS_Courses::post_special_class( $index + 1, $template ) ?>">
