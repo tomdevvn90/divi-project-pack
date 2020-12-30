@@ -1,0 +1,35 @@
+.dipp-module-member-team{
+  overflow: hidden;
+  position: relative;
+  .wrapper-content-team-member{
+    text-align: center;
+    .img-member{
+      height: 222px;
+      width: 222px;
+      border-radius: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover; 
+      margin: auto;
+    }    
+    .name-member{
+      color: #0F0F0F;
+      font-size: 20px;
+      font-family: "Helvetica";
+      font-weight: 700;
+      margin-top: 30px;
+      margin-bottom: 6px;
+      padding: 0;
+    }
+    p{
+      color: #000000;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.3;
+      padding: 0;
+      &.position-member{
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
