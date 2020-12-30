@@ -1,0 +1,40 @@
+.dipp-module-custom-images {
+  overflow: hidden;
+  position: relative;
+  &.module-custom-images-style-2 {
+    .wrapper-custom-images {
+      padding: 40px 0 40px 25px;
+      .bg-container {
+        position: absolute;
+        background-color: #999997;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - 50px);
+        height: 100%;
+        z-index: 1;
+      }
+    }
+  }
+  .wrapper-custom-images {
+    padding-left: 30px;
+    padding-bottom: 30px;
+    img {
+      width: 100%;
+      max-width: 100%;
+      z-index: 2;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .bg-container {
+      position: absolute;
+      background-color: #14212b;
+      bottom: 0;
+      left: 0;
+      width: calc(100% - 20px);
+      height: 60%;
+      z-index: 1;
+    }
+  }
+}
