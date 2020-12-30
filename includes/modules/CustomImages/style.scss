@@ -3,7 +3,11 @@
   position: relative;
   &.module-custom-images-style-2 {
     .wrapper-custom-images {
-      padding: 40px 0 40px 25px;
+      padding: 40px 0;
+      img {
+        position: relative;
+        right: -25px;
+      }
       .bg-container {
         position: absolute;
         background-color: #999997;
