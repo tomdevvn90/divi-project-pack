@@ -1,6 +1,27 @@
+@keyframes fadeIntoTop {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes fadeIntoLeft {
+	from {
+		opacity: 0;
+		transform: translate3d(-7%, 0, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
 .dipp-module-custom-heading {
   &.module-heading-style-2 {
-    padding-bottom: 19px;
+    padding-bottom: 16px;
     border-bottom: solid 1px #e5e5e5;
     position: relative;
     &:after {
@@ -14,12 +35,16 @@
     }
     .custom-heading-tag {
       font-size: 40px;
+      animation: fadeIntoTop 1.2s ease-in both;
     }
   }
   .custom-heading-tag {
+    padding: 0;
     font-family: "Lulo Clean";
     text-transform: uppercase;
     line-height: 1.3;
+    animation: fadeIntoLeft 1.2s ease-in both;
+    animation-delay: 0.3s;
     font-size: var(--size-default);
 
     @media (max-width: 991px) {
