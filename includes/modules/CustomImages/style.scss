@@ -1,3 +1,13 @@
+@keyframes fadeIntoRight {
+  from {
+    opacity: 0;
+    transform: translate3d(10%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 .dipp-module-custom-images {
   position: relative;
   &.module-custom-images-style-2 {
@@ -15,6 +25,14 @@
         width: calc(100% - 50px);
         height: 100%;
         z-index: 1;
+      }
+    }
+  }
+  &.module-custom-images-style-1 {
+    .wrapper-custom-images {
+      img {
+        animation: fadeIntoRight 1.2s ease-in both;
+        animation-delay: 0s;
       }
     }
   }
