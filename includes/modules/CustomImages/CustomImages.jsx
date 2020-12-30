@@ -12,7 +12,6 @@ class CustomImages extends Component {
   render() {
     const src = this.props.src;
     const bgColor = this.props.bg_color;
-    console.log(this.props);
     return (
       <div className={`dipp-module-custom-images module-custom-images-${this.props.style}`}>
         <div className="wrapper-custom-images">
