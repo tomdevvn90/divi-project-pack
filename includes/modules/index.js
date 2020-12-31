@@ -5,4 +5,5 @@ import DPP_CustomHeading from './CustomHeading/CustomHeading'
 import DPP_CustomImages from './CustomImages/CustomImages'
 import DPP_MemberTeam from './MemberTeam/MemberTeam'
 import DPP_MixImagesVideos from './MixImagesVideos/MixImagesVideos'
-export default [HelloWorld, SenseiLMSCourses, DPP_GridPosts, DPP_CustomHeading, DPP_CustomImages, DPP_MemberTeam, DPP_MixImagesVideos];
+import DPP_BoxText from './BoxText/BoxText'
+export default [HelloWorld, SenseiLMSCourses, DPP_GridPosts, DPP_CustomHeading, DPP_CustomImages, DPP_MemberTeam, DPP_MixImagesVideos, DPP_BoxText];

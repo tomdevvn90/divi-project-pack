@@ -36,7 +36,7 @@ class DIPP_CustomImages extends ET_Builder_Module {
 				'hover'              => 'tabs',
 			),			
 			'bg_color' => array(
-				'label'			  => esc_html__( 'Text Colour', 'dipp-divi-project-pack'),
+				'label'			  => esc_html__( 'Background Colour', 'dipp-divi-project-pack'),
 				'type'			  => 'color-alpha',
 				'option_category' => 'basic_option',
 				'description'     => esc_html__( 'Input the color of the text', 'dipp-divi-project-pack' ),
