@@ -29,6 +29,9 @@
     transition-property: transform;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
+    @media (max-width: 991px) {
+      padding: 35px 40px 40px !important;
+    }
     @media (max-width: 480px) {
       padding: 35px 20px 40px;
     }
@@ -38,6 +41,7 @@
       line-height: 1;
       font-family: "Helvetica";
       padding: 0;
+      font-weight: 700;
       margin-bottom: 20px;
     }
     .desc-box {
