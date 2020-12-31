@@ -52,7 +52,7 @@
             padding: 0;
             text-transform: uppercase;
             margin-bottom: 15px;
-            @media (max-width:767px){
+            @media (max-width: 767px) {
               font-size: 1.5em;
             }
           }
@@ -61,16 +61,33 @@
           font-size: 16px;
           font-weight: 300;
           color: #424242;
-          @media (max-width: 767px){
+          @media (max-width: 767px) {
             margin-bottom: 30px;
           }
         }
         .wrap-videos {
+          position: relative;
+          @media (max-width: 767px) {
+            margin-bottom: 30px;
+          }
+          #btn-play {
+            position: absolute;
+            top: calc(50% - 15px);
+            left: calc(50% - 15px);
+            right: 0;
+            width: 0px;
+            height: 0px;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 30px solid #fff;
+            bottom: 0;
+            display: none;
+          }
           video {
             width: 100%;
-            @media (max-width: 767px){
+            @media (max-width: 767px) {
               height: auto;
-              margin-bottom: 30px;
+              
             }
           }
         }
@@ -81,11 +98,15 @@
       margin-top: -175px;
       position: relative;
       z-index: -1;
-      @media (max-width: 767px){
+      @media (max-width: 991px) {
+        margin-top: -120px;
+      }
+      @media (max-width: 767px) {
         max-width: 100%;
         margin-top: 0;
       }
-      img{
+
+      img {
         width: 100%;
       }
       .module-mix-images {
@@ -94,7 +115,7 @@
           left: -60px;
           animation: fadeIntoLeft 1.2s ease-in both;
           animation-delay: 0s;
-          @media (max-width: 767px){
+          @media (max-width: 767px) {
             left: 0px;
             margin-bottom: 30px;
           }
@@ -107,8 +128,8 @@
           margin-top: -225px;
           animation: fadeIntoBottoms 1.2s ease-in both;
           animation-delay: 0s;
-          @media (max-width: 767px){
-            left:0;
+          @media (max-width: 767px) {
+            left: 0;
             margin-top: 0;
           }
         }

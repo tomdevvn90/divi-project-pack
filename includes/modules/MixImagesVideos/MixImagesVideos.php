@@ -106,8 +106,9 @@ class DIPP_MixImagesVideos extends ET_Builder_Module {
 				</div>
 				<div class="mix-images-videos-col">
 					<div class="wrap-videos">
+						<span id="btn-play"></span>
 						<?php if(!empty($src_video)){ ?>
-							<video width="100" height="355" autoplay muted >
+							<video width="100" height="355" id="videoPlayer" autoplay muted >
 								<source src="<?= $src_video ?>" type="video/mp4">
 							</video>
 							<?php } ?>
