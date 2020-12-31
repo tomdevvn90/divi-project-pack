@@ -1,3 +1,4 @@
+@import "~video-react/styles/scss/video-react";
 @keyframes fadeIntoLeft {
   from {
     opacity: 0;
@@ -60,34 +61,56 @@
           font-size: 16px;
           font-weight: 300;
           color: #424242;
+          @media (max-width: 767px){
+            margin-bottom: 30px;
+          }
         }
         .wrap-videos {
           video {
             width: 100%;
+            @media (max-width: 767px){
+              height: auto;
+              margin-bottom: 30px;
+            }
           }
         }
       }
     }
     .wrap-images {
       max-width: 65%;
-      margin-top: -18%;
+      margin-top: -175px;
       position: relative;
       z-index: -1;
+      @media (max-width: 767px){
+        max-width: 100%;
+        margin-top: 0;
+      }
+      img{
+        width: 100%;
+      }
       .module-mix-images {
         &.mix-images-1 {
           position: relative;
           left: -60px;
           animation: fadeIntoLeft 1.2s ease-in both;
           animation-delay: 0s;
+          @media (max-width: 767px){
+            left: 0px;
+            margin-bottom: 30px;
+          }
         }
         &.mix-images-2 {
           max-width: 320px;
           position: relative;
           z-index: 1;
-          left: 70%;
-          margin-top: -25%;
+          left: calc(100% - 260px);
+          margin-top: -225px;
           animation: fadeIntoBottoms 1.2s ease-in both;
           animation-delay: 0s;
+          @media (max-width: 767px){
+            left:0;
+            margin-top: 0;
+          }
         }
       }
     }
