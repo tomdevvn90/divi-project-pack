@@ -1,22 +1,22 @@
 @keyframes fadeIntoTop {
-	from {
-		opacity: 0;
-		transform: translate3d(0, -20%, 0);
-	}
-	to {
-		opacity: 1;
-		transform: translate3d(0, 0, 0);
-	}
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 @keyframes fadeIntoLeft {
-	from {
-		opacity: 0;
-		transform: translate3d(-7%, 0, 0);
-	}
-	to {
-		opacity: 1;
-		transform: translate3d(0, 0, 0);
-	}
+  from {
+    opacity: 0;
+    transform: translate3d(-7%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .dipp-module-custom-heading {
@@ -31,11 +31,20 @@
       bottom: 0;
       width: 55%;
       height: 10px;
-      background: #8D8D8D;
+      background: #8d8d8d;
     }
     .custom-heading-tag {
       font-size: 40px;
       animation: fadeIntoTop 1.2s ease-in both;
+      font-size: var(--size-default);
+
+      @media (max-width: 991px) {
+        font-size: var(--size-tablet);
+      }
+
+      @media (max-width: 767px) {
+        font-size: var(--size-mobile);
+      }
     }
   }
   .custom-heading-tag {
