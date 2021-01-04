@@ -73,7 +73,7 @@ class DIPP_MemberTeam extends ET_Builder_Module {
 			<div class="img-member" style="background-image: url(<?= $attrs['src'] ?>)"></div>		
 			<h5 class="name-member"><?= $name ?></h5>
 			<p class="position-member"><?= $position ?></p>
-			<p class="email-member"><?= $email ?></p>
+			<p class="email-member"><a href="mailto:<?= $email ?>"><?= $email ?></a></p>
 		</div>
 		<?php 
 		return ob_get_clean();

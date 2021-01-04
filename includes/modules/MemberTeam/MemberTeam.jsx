@@ -20,7 +20,7 @@ class MemberTeam extends Component {
           <div className="img-member" style={{backgroundImage: `url(${src})`}}></div>          
           <h5 className="name-member">{name}</h5>
           <p className="position-member">{position}</p>
-          <p className="email-member">{email}</p>
+          <p className="email-member"><a href={`mailto:${email}`}>{email}</a></p>
         </div>
       </div>
     );
