@@ -1,0 +1,115 @@
+.dipp-module-pros-cons{
+    .wrapper-content-pros-cons{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: -o-flex;
+        display: flex;
+        max-width: 800px;
+        margin: 0;
+        padding: 0;
+        @media screen and ( max-width: 640px ){
+            flex-wrap: wrap;
+        }
+        > .item-wrapper{
+            width: 50%;
+            padding: 0 15px;
+            @media screen and ( max-width: 640px ){
+                width: 100%;
+            }
+            .bt-tilte{
+                color: #324158;
+                font-family: "Helvetica";
+                font-size: 33px;
+                letter-spacing: 0em;
+                font-weight: 700;
+                margin: 0 0 25px 0;
+                padding: 0 0 0 50px;
+                position: relative;
+                @media screen and ( max-width: 640px ){
+                    font-size: 26px;
+                    line-height: 1em;
+                }
+                &::before{
+                    content: "";
+                    display: inline-block;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    position: absolute;
+                    top:50%;
+                    transform: translateY(-50%);
+                    width: 78px;
+                    height: 49px;
+                    left: -20px;
+                }
+            }
+            .bt-content{
+                p{
+                    margin: 0;
+                    padding: 0;
+                }
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    > li{
+                        &::marker{
+                            content: none;
+                            display: none;
+                            font-size: 0;
+                        }
+                        color: #121212;
+                        font-weight: normal;
+                        font-size: 17px;
+                        font-family: 'Arial';
+                        line-height: 27px;
+                        &:not(:last-child){
+                            margin-bottom: 8px;
+                        }
+                        @media screen and ( max-width: 640px ){
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+            &.item-pros{
+                position: relative;
+                &::before{
+                    content: "";
+                    display: inline-block;
+                    width: 5px;
+                    height: 70%;
+                    background-color: transparent;
+                    border-right: 1.5px dashed #324158;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    @media screen and ( max-width: 640px ){
+                        content: none;
+                    }
+                }
+                .bt-tilte{
+                    padding-left: 55px;
+                    &::before{
+                        top: calc(50% - 7px);
+                        background-image: url("/learnacourseonline/wp-content/plugins/divi-project-pack/includes/modules/ProsCons/image/icon-check.png");
+                    }
+                    
+                }
+            }
+            &.item-cons{
+                padding-left: 40px;
+                @media screen and ( max-width: 640px ){
+                    padding-left: 15px;
+                    margin-top: 30px;
+                }
+                .bt-tilte{
+                    &::before{
+                        background-image: url("/learnacourseonline/wp-content/plugins/divi-project-pack/includes/modules/ProsCons/image/icon-cancel.png");
+                    }
+                   
+                }
+            }
+        }
+    }
+}
